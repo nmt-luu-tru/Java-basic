@@ -1,0 +1,64 @@
+Trong Java, khi truyền dữ liệu vào phương thức, có hai cách phổ biến là **truyền theo giá trị** (value type) và **truyền theo tham chiếu** (reference type). Dưới đây là sự khác biệt chi tiết giữa hai kiểu này:
+
+1. **Value Type (Kiểu giá trị)**  
+   - **Định nghĩa**: Các kiểu dữ liệu cơ bản như `byte`, `short`, `int`, `long`, `float`, `double`, `boolean`, `char` được coi là kiểu giá trị. Khi truyền các biến thuộc kiểu này vào phương thức, Java chỉ truyền **giá trị** của biến, không phải địa chỉ bộ nhớ của nó.
+   - **Cách hoạt động**: Một bản sao của giá trị sẽ được truyền vào phương thức. Mọi thay đổi trong phương thức sẽ chỉ áp dụng cho bản sao, và không ảnh hưởng đến giá trị ban đầu bên ngoài phương thức.
+
+   **Ví dụ**:
+
+   ```java
+   public class Main {
+       static void addOneTo(int num) {
+           num = num + 1;
+       }
+
+       static void Test_addOneTo() {
+           int x = 5;
+           addOneTo(x);
+           System.out.println(x);  // In ra 5
+       }
+   }
+   ```
+
+   Ở ví dụ trên, giá trị `x` không thay đổi sau khi gọi phương thức `addOneTo`, vì chỉ có bản sao của giá trị `x` được truyền vào phương thức.
+
+2. **Reference Type (Kiểu tham chiếu)**  
+   - **Định nghĩa**: Kiểu tham chiếu lưu trữ địa chỉ bộ nhớ của đối tượng, thay vì lưu trữ giá trị trực tiếp. Các đối tượng thuộc lớp (`class`) đều là kiểu tham chiếu. Khi truyền biến kiểu tham chiếu vào phương thức, Java truyền địa chỉ của biến, cho phép phương thức truy cập và thay đổi giá trị của đối tượng gốc.
+   - **Cách hoạt động**: Khi biến tham chiếu được truyền vào phương thức, mọi thay đổi trong phương thức sẽ tác động trực tiếp đến đối tượng thực tế mà biến trỏ tới.
+
+   **Ví dụ**:
+
+   ```java
+   public class Student {
+       private String name;
+       private int age;
+
+       public void setName(String name) {
+           this.name = name;
+       }
+
+       public void setAge(int age) {
+           this.age = age;
+       }
+
+       public int getAge() {
+           return this.age;
+       }
+   }
+
+   static void celebrateBirthday(Student p) {
+       p.setAge(p.getAge() + 1);
+   }
+
+   static void test_celebrateBirthday() {
+       Student j = new Student();
+       j.setAge(20);
+
+       celebrateBirthday(j);
+       System.out.println(j.getAge());  // In ra 21
+   }
+   ```
+
+   Trong ví dụ này, biến `j` là kiểu tham chiếu, nên khi truyền nó vào phương thức `celebrateBirthday`, giá trị tuổi của đối tượng `j` bị thay đổi trực tiếp.
+
+Tóm lại, **truyền theo giá trị** chỉ làm việc với bản sao của dữ liệu gốc, trong khi **truyền theo tham chiếu** thay đổi trực tiếp đối tượng mà tham chiếu trỏ tới.
