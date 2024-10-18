@@ -1,0 +1,43 @@
+### Tóm tắt các phép toán rút gọn với toán tử
+
+Trong phần này, chúng ta sẽ thảo luận về cách rút gọn việc sử dụng các phép toán với các toán tử cộng, trừ, nhân, chia. Thay vì viết một cách dài dòng như trước đây, chúng ta có thể rút gọn các phép tính bằng các ký hiệu đơn giản hơn.
+
+#### Phép toán cộng rút gọn với `++`
+```java
+int result = 1;
+result++; // Rút gọn của result = result + 1;
+System.out.println("1 + 1 = " + result); // Kết quả: 1 + 1 = 2
+```
+
+#### Phép toán trừ rút gọn với `--`
+```java
+result--; // Rút gọn của result = result - 1;
+System.out.println("2 - 1 = " + result); // Kết quả: 2 - 1 = 1
+```
+
+#### Phép cộng rút gọn với `+=`
+```java
+result += 2; // Rút gọn của result = result + 2;
+System.out.println("1 + 2 = " + result); // Kết quả: 1 + 2 = 3
+```
+
+#### Phép nhân rút gọn với `*=`
+```java
+result *= 10; // Rút gọn của result = result * 10;
+System.out.println("3 * 10 = " + result); // Kết quả: 3 * 10 = 30
+```
+
+#### Phép chia rút gọn với `/=`
+```java
+result /= 3; // Rút gọn của result = result / 3;
+System.out.println("30 / 3 = " + result); // Kết quả: 30 / 3 = 10
+```
+
+#### Phép trừ rút gọn với `-=`
+```java
+result -= 2; // Rút gọn của result = result - 2;
+System.out.println("10 - 2 = " + result); // Kết quả: 10 - 2 = 8
+```
+
+### Tổng kết
+Việc sử dụng các toán tử rút gọn giúp mã nguồn trở nên gọn gàng và dễ hiểu hơn. Những phép toán như cộng, trừ, nhân, chia đều có thể được rút gọn bằng cách thêm ký hiệu `+`, `-`, `*`, `/` kèm theo dấu `=`. Đây là cách viết tắt hiệu quả mà bạn sẽ sử dụng rất thường xuyên trong Java.
